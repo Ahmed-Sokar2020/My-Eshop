@@ -1,0 +1,48 @@
+<div class="admin-page" *ngIf="statistics.length">
+  <p-card header="Dashboard" subheader="Latest Updats">
+    <div class="grid">
+
+      <div class="col-3">
+        <p-card styleClass="d-orders">
+          <div class="dash-item">
+              <i class="pi pi-shopping-cart"></i><br>
+              <span class="name">Orders</span><br>
+              <span class="number">{{statistics[0].orderCount}}</span>
+          </div>
+        </p-card>
+      </div>
+
+      <div class="col-3">
+        <p-card styleClass="d-products">
+          <div class="dash-item">
+              <i class="pi pi-briefcase"></i><br>
+              <span class="name">Products</span><br>
+              <span class="number">{{statistics[1].productCount}}</span>
+          </div>
+        </p-card>
+      </div>
+
+      <div class="col-3">
+        <p-card styleClass="d-users">
+          <div class="dash-item">
+              <i class="pi pi-users"></i><br>
+              <span class="name">Users</span><br>
+              <span class="number">{{statistics[2].userCount}}</span>
+          </div>
+        </p-card>
+      </div>
+
+      <div class="col-3">
+        <p-card styleClass="d-totalsales">
+          <div class="dash-item">
+              <i class="pi pi-dollar"></i> <br />
+              <span class="name">Totalsales</span><br>
+              <span class="number">{{ statistics[3].totalsales | currency }}</span>
+              <!-- <span class="number">{{ '30000' | currency }}</span> -->
+          </div>
+        </p-card>
+      </div>
+
+    </div>
+  </p-card>
+</div>

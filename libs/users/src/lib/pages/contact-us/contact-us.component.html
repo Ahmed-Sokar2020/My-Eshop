@@ -1,0 +1,88 @@
+<div class="contact">
+  <div class="contact-panel">
+    <div class="grid">
+
+      <div class="col-12 p-5">
+        <h1>Contact Us</h1>
+        <p>For all customers, pleaze email us using the form below</p>
+
+        <form [formGroup] = "contactFormGroup">
+          <div class="grid mt-6">
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Your Name"
+                  formControlName="name">
+              </div>
+              <small
+                *ngIf="contactForm.name.invalid && isSubmitted" class="p-error"> Name is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Your Email"
+                  formControlName="email">
+              </div>
+              <small *ngIf="contactForm.email.invalid && isSubmitted" class="p-error">
+                <span *ngIf="contactForm.email.errors?.required">
+                  Email is required
+                </span>
+                <span *ngIf="contactForm.email.errors?.email">
+                  Email is invalid
+                </span>
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Your Subject"
+                  formControlName="subject">
+              </div>
+              <small
+                *ngIf="contactForm.subject.invalid && isSubmitted" class="p-error"> Subject is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <textarea
+                class="mt-1"
+                [rows]="6"
+                [cols]="30"
+                pInputTextarea
+                placeholder="Your Message..."
+                formControlName="message">
+                </textarea>
+              </div>
+              <small
+                *ngIf="contactForm.message.invalid && isSubmitted" class="p-error">
+                  Message is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <p-button
+                label="Send"
+                styleClass="full-btn"
+                (onClick)="onSubmit()">
+              </p-button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

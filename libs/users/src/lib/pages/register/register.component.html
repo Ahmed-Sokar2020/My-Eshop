@@ -1,0 +1,97 @@
+<div class="register">
+  <div class="register-panel">
+    <div class="grid">
+
+      <div class="col-12 p-5">
+        <h3>Welcom!</h3>
+        <h1>User Registration</h1>
+        <form [formGroup] = "registerFormGroup">
+          <div class="grid mt-6">
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="User Name"
+                  formControlName="userName">
+              </div>
+              <small
+                *ngIf="registerForm.userName.invalid && isSubmitted" class="p-error"> user Name is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Email"
+                  formControlName="email">
+              </div>
+              <small *ngIf="registerForm.email.invalid && isSubmitted" class="p-error">
+                <span *ngIf="registerForm.email.errors?.required">
+                  Email is required
+                </span>
+                <span *ngIf="registerForm.email.errors?.email">
+                  Email is invalid
+                </span>
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                <input
+                  type="password"
+                  pInputText
+                  placeholder="Password"
+                  formControlName="password">
+              </div>
+              <small
+                *ngIf="registerForm.password.invalid && isSubmitted" class="p-error"> Password is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                <input
+                  type="password"
+                  pInputText
+                  placeholder="Repeat Password"
+                  formControlName="repeatPassword">
+              </div>
+              <small
+                *ngIf="registerForm.repeatPassword.invalid && isSubmitted" class="p-error">
+                  Repeat Password is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <p-button
+                label="Register"
+                styleClass="full-btn"
+                (onClick)="onSubmit()">
+              </p-button>
+            </div>
+
+            <div class="sign-in">
+              <span>Already have account?
+                <a routerLink="/login">Log in</a></span>
+            </div>
+
+            <div class="col-12">
+              <small class="p-error"
+              *ngIf="isSubmitted && isAuthError"> {{authMessage}}
+              </small>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

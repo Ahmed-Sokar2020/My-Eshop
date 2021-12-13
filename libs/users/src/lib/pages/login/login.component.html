@@ -1,0 +1,72 @@
+<div class="login-register">
+  <div class="login-register-panel">
+    <div class="grid">
+
+      <div class="col-6 login-register-panel-image">
+        <img src="assets/images/login1.jpg" alt="image" />
+      </div>
+
+      <div class="col-6 p-5">
+        <h3>Welcom!</h3>
+        <h1>Login Page</h1>
+        <form [formGroup] = "loginFormGroup">
+          <div class="grid mt-6">
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                <input
+                  type="text"
+                  pInputText
+                  placeholder="Email"
+                  formControlName="email">
+              </div>
+              <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error">
+                <span *ngIf="loginForm.email.errors?.required">
+                  Email is required
+                </span>
+                <span *ngIf="loginForm.email.errors?.email">
+                  Email is invalid
+                </span>
+              </small>
+            </div>
+
+            <div class="col-12">
+              <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                <input
+                  type="password"
+                  pInputText
+                  placeholder="password"
+                  formControlName="password">
+              </div>
+              <small
+                *ngIf="loginForm.password.invalid && isSubmitted" class="p-error"> Password is required
+              </small>
+            </div>
+
+            <div class="col-12">
+              <p-button
+                label="Log in"
+                styleClass="full-btn"
+                (onClick)="onSubmit()">
+              </p-button>
+            </div>
+
+            <div class="sign-up">
+              <span>Don’t have account?
+                <a routerLink="/register">Sign up</a></span>
+            </div>
+
+
+            <div class="col-12">
+              <small class="p-error"
+              *ngIf="isSubmitted && isAuthError"> {{authMessage}}
+              </small>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+// Base
+@import '~normalize.css/normalize.css';
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+
+// This way if u have internet connection
+// @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css");
+
+// Libraries
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeflex/primeflex.css';
+@import '~animate.css/animate.css';
+
+@import './base/configuration.scss';
+
+// apps/ Pages
+@import './apps/ecommerce/pages/home-page.scss';
+@import './apps/ecommerce/pages/products-list.scss';
+
+// apps/ Shared
+@import './apps/ecommerce/shared/footer.scss';
+@import './apps/ecommerce/shared/header.scss';
+@import './apps/ecommerce/shared/nav.scss';
+
+// Libs
+@import './libs/users/users.scss';
+@import './libs/orders/orders.scss';
+@import './libs/products/products.scss';
+@import './libs/ui/ui.scss';
+
+
+
+.container {
+  width: 900px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: var(--surface-100);
+}

@@ -1,0 +1,25 @@
+body {
+  font-family: 'Open Sans', sans serif;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  @include reset-list;
+}
+
+input {
+  height: 35px;
+}
+
+:focus {
+  outline: none;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 500;
+}

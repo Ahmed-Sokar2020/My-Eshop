@@ -1,0 +1,124 @@
+<p-toast></p-toast>
+<div class="admin-page" *ngIf="order">
+  <p-card header="View Order" subheader="You can edit Order Status here">
+
+    <p-fieldset
+    legend="Order Details"
+    [toggleable]="true"
+    styleClass="mb-4">
+      <div class="grid">
+        <div class="col-4">
+          <h4>Order Id</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.id}}
+          </p>
+        </div>
+
+        <div class="col-4">
+          <h4>Order Date</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.dateOrdered | date: 'short'}}
+          </p>
+        </div>
+
+        <div class="col-4">
+          <h4>Order Status</h4>
+          <p-dropdown
+          [options]="orderStatuses"
+          [(ngModel)]="selectedStatus"
+          optionLabel="name"
+          optionValue="id"
+          (onChange)="onStatusChange($event)">
+          </p-dropdown>
+        </div>
+
+        <div class="col-4">
+          <h4>Order Total Price</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.totalPrice | currency}}
+          </p>
+        </div>
+      </div>
+    </p-fieldset>
+
+    <p-fieldset
+    legend="Order Item"
+    [toggleable]="true"
+    styleClass="mb-4">
+      <div class="grid">
+        <h4 class="col-2 p-text-bold">Name</h4>
+        <h4 class="col-2 p-text-bold">Brand</h4>
+        <h4 class="col-2 p-text-bold">Category</h4>
+        <h4 class="col-2 p-text-bold">Price</h4>
+        <h4 class="col-2 p-text-bold">Quantity</h4>
+        <h4 class="col-2 p-text-bold">Subtotal</h4>
+      </div>
+
+      <div *ngFor= "let orderItem of order.orderItems">
+        <div class="grid">
+          <div class="col-2" style="color: green">
+            {{orderItem.product?.name}}
+          </div>
+          <div class="col-2" style="color: green">
+            {{orderItem.product?.brand}}
+          </div>
+          <div class="col-2" style="color: green">
+            {{orderItem.product?.category?.name}}
+          </div>
+          <div class="col-2" style="color: green">
+            {{orderItem.product?.price | currency}}
+          </div>
+          <div class="col-2" style="color: green">
+            {{orderItem.quantity}}
+          </div>
+          <div class="col-2" style="color: green">
+            {{orderItem.product?.price * orderItem.quantity | currency}}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-3" >
+        <div
+        class="col-2 col-offset-8"
+        style="font-weight: bold;"> Total Price
+        </div>
+        <div
+        class="col-2"
+        style="color: green; font-weight: 500;">
+        {{order.totalPrice | currency}}
+      </div>
+      </div>
+    </p-fieldset>
+
+    <p-fieldset
+    legend="Order Adress"
+    [toggleable]="true"
+    styleClass="mb-4">
+      <div class="grid">
+        <div class="col-4">
+          <h4>Customer Adress</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.shippingAdress1}} <br />
+            {{order.shippingAdress2}} <br />
+            {{order.city}}, {{order.country}}
+          </p>
+        </div>
+        <div class="col-4">
+          <h4>Customer Info</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.user?.name}}
+          </p>
+        </div>
+        <div class="col-4">
+          <h4>Contact Info</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.user?.phone}}<br />
+            {{order.user?.email}}<br />
+          </p>
+        </div>
+
+      </div>
+    </p-fieldset>
+  </p-card>
+</div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
