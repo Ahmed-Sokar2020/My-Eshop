@@ -22,7 +22,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
 
   checkoutFormGroup: FormGroup;
   isSubmitted = false;
-  userId?: string;
+  userId?: string | any;
   orderItems: OrderItem[] | any = [];
   countries: any = [];
   endSubs$: Subject<any> = new Subject;
@@ -36,7 +36,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
 
     ) {
     this.checkoutFormGroup = this.formBuilder.group({
-      name: ['', [Validators.required]],
+      userName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required]],
       street: ['', [Validators.required]],
@@ -125,7 +125,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     .subscribe((user) => {
       if(user) {
         this.userId = user.id;
-        this.checkoutForm.name.setValue(user.name);
+        this.checkoutForm.userName.setValue(user.userName);
         this.checkoutForm.email.setValue(user.email);
         this.checkoutForm.phone.setValue(user.phone);
         this.checkoutForm.street.setValue(user.street);

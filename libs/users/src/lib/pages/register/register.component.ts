@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 // import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
-import { LocalstorageService } from '../../services/localstorage.service';
 
 @Component({
   selector: 'users-register',
@@ -24,7 +23,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private localstorageService: LocalstorageService,
     private router: Router,
     ) {
     this.registerFormGroup = this.fb.group({
@@ -55,10 +53,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if(this.registerFormGroup.invalid) return;
 
     this.authService.register(
-      this.registerForm.email.value, this.registerForm.password.value).pipe(takeUntil(this.endSubs)).subscribe(
+      this.registerForm.userName.value, this.registerForm.email.value, this.registerForm.password.value).pipe(takeUntil(this.endSubs)).subscribe(
       () => {
         this.isAuthError = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       },
       (error: HttpErrorResponse) => {
       this.isAuthError = true;

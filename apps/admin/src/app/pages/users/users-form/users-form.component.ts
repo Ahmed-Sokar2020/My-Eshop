@@ -34,7 +34,7 @@ export class UsersFormComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     ) {
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       phone: ['', Validators.required],
@@ -77,7 +77,7 @@ export class UsersFormComponent implements OnInit, OnDestroy {
 
     const user: User = {
       id: this.curruntUserId,
-      name: this.userForm.name.value,
+      userName: this.userForm.userName.value,
       email: this.userForm.email.value,
       password: this.userForm.password.value,
       phone: this.userForm.phone.value,
@@ -112,7 +112,7 @@ export class UsersFormComponent implements OnInit, OnDestroy {
       this.editMode = true;
       this.curruntUserId = params.id;
       this.usersService.getUser(params.id).subscribe(user => {
-        this.userForm.name.setValue(user.name);
+        this.userForm.userName.setValue(user.userName);
         this.userForm.email.setValue(user.email);
         this.userForm.password.setValue(user.password);
         this.userForm.phone.setValue(user.phone);

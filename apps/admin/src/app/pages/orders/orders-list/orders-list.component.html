@@ -10,8 +10,8 @@
         styleClass="p-datatable-gridlines" >
           <ng-template pTemplate="header">
               <tr>
-                  <th pSortableColumn="user.name">Name
-                    <p-sortIcon field="user.name"></p-sortIcon>
+                  <th pSortableColumn="user.userName">Name
+                    <p-sortIcon field="user.userName"></p-sortIcon>
                   </th>
                   <th pSortableColumn="totalPrice">Total Price
                     <p-sortIcon field="totalPrice"></p-sortIcon>
@@ -28,7 +28,7 @@
 
           <ng-template pTemplate="body" let-order>
               <tr>
-                  <td>{{order.user?.name}}</td>
+                  <td>{{order.user?.userName}}</td>
                   <td>{{order.totalPrice | currency}}</td>
                   <td>{{order.dateOrdered | date: 'short'}}</td>
                   <td>
