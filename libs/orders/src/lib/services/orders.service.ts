@@ -32,7 +32,7 @@ export class OrdersService {
     return this.http.get<Order>(`${this.apiURLOrders}/${orderId}`);
   }
 
-  //  Post Method for the created Order In The Checkout Page
+  //  Post Method for the created Order In The Thankyou Page
   createOrder(order: Order): Observable<Order>{
     return this.http.post<Order>(this.apiURLOrders, order);
   }
