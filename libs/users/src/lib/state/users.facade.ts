@@ -14,8 +14,14 @@ export class UsersFacade {
 
   constructor(private store: Store) {}
 
-  // To Call An Action
+  // To Call An Action and it will be Called in the usersService
   buildUserSession() {
     this.store.dispatch(UsersActions.buildUserSession());
   }
 }
+
+// ^^
+// ^^
+// ||
+// ||
+// Using Facade File to make some Functions to Organize the Code

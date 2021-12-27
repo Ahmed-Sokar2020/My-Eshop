@@ -1,11 +1,21 @@
 header {
   .contain {
     padding: 30px 0;
+    align-items: center;
   }
   .logo {
-    margin-top: -35px;
+    margin-top: -25px;
     img {
-      width: 160px;
+      width: 140px;
+    }
+  }
+  .logout {
+    color: var(--surface-500);
+    font-size: 1em;
+    font-weight: bold;
+    &:hover {
+      cursor: pointer;
+      color: $primary-color;
     }
   }
   .icons {

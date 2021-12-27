@@ -37,7 +37,6 @@ export class LocalstorageService {
      }
   }
 
-
   private _tokenExpired(expiration: any | boolean) {
     return Math.floor(new Date().getTime() / 1000) >= expiration;
   }
@@ -46,48 +45,24 @@ export class LocalstorageService {
 // Method to be Called in Users Effects File(ngrx)
   getUserIdFromToken() {
     const token = this.getToken();
-     if(token) {
+    if(token) {
       const tokenDecode = JSON.parse(atob(token.split('.')[1]));
-      return tokenDecode ? tokenDecode.userId : null;
-     } else {
-      return null;
-     }
+      // return tokenDecode ? tokenDecode.userId : null;
+      if(tokenDecode) {
+        return tokenDecode.userId
+      }else {
+        return null
+      }
+    } else {
+    return null;
+    }
   }
 
 
 }
 
 
-//  export class LocalstorageService {
 
-//   constructor() { }
-
-//   setToken(data: any) {
-//     localStorage.setItem(TOKEN, data);
-//   }
-
-
-//   getToken() {
-//     return localStorage.getItem(TOKEN);
-//   }
-
-
-//   removeToken() {
-//     localStorage.removeItem(TOKEN);
-//   }
-
-
-//   // Method to be Called in Users Effects File(ngrx)
-//   IsValidToken(): any {
-//      const token = this.getToken();
-//      token ? true : false;
-//   }
-
-//   // Method to be Called in Users Effects File(ngrx)
-//   getUserIdFromToken() {
-//     const token = this.getToken();
-//      token ? true : null;
-//   }
 
 
 

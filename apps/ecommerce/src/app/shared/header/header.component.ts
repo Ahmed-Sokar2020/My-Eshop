@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '@sokar/users';
 
 @Component({
   selector: 'ecommerce-header',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
+  logoutUser() {
+    this.authService.logout();
+  }
 
 }

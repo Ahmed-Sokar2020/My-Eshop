@@ -6,8 +6,8 @@
     "ng": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "build-prod-ecommerce": "nx build ecommerce --output-path ../ecommerce --base-href /Ecommerce/",
-    "build-prod-admin": "nx build admin --output-path ../admin --base-href /Ecommerce-Admin/",
+    "build-prod-ecommerce": "nx build ecommerce --output-path ../Ecommerce --base-href /My_Ecommerce/",
+    "build-prod-admin": "nx build admin --output-path ../Admin --base-href /Admin-Ecommerce/",
     "test": "nx test",
     "lint": "nx workspace-lint && ng lint"
   },

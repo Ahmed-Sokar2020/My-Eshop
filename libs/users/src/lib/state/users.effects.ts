@@ -13,7 +13,7 @@ export class UsersEffects {
     ofType(UsersActions.buildUserSession),
     concatMap(() => {
       if(this.localstorageService.IsValidToken()) {
-        const userId: any = this.localstorageService.getUserIdFromToken();
+        const userId = this.localstorageService.getUserIdFromToken();
         if(userId) {
           return this.usersService.getUser(userId).pipe(
             map(user => {

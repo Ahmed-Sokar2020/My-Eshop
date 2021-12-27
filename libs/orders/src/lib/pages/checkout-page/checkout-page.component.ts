@@ -107,7 +107,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
   }
 
 
-  // To get Countries in Dropdown List in Users-form Page
+  // To get Countries in Dropdown List in Checkout Page Form
   private _getCountries() {
     this.countries = this.usersService.getCountries();
   }
@@ -120,7 +120,8 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
 
   // auto Fill For User Data in The Form in Checkout Page
   private _autoFillUserData() {
-    this.usersService.observeCurrentUser()
+    this.usersService
+    .observeCurrentUser()
     .pipe(takeUntil(this.endSubs$))
     .subscribe((user) => {
       if(user) {

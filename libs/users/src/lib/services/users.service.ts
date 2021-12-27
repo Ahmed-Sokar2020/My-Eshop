@@ -83,10 +83,12 @@ getUsersCount(): Observable<{userCount: number}> {
   this.usersFacade.buildUserSession();
  }
 
+
 // Method To Retrun the Selectors Which are Called in The Effects File
  observeCurrentUser() {
   return this.usersFacade.currentUser$;
  }
+
 
  observeIsAuthenticated() {
   return this.usersFacade.isAuthenticated$;

@@ -1,13 +1,13 @@
 <header>
   <div class="grid contain">
-    <div class="col-3">
+    <div class="col-2">
       <div class="logo">
         <img src="assets/images/logo.png" alt="Logo">
       </div>
     </div>
 
     <!-- This for products-search Component in the Products Library -->
-    <div class="col-3 search">
+    <div class="col-3 search ">
       <products-search></products-search>
 
     </div>
@@ -17,12 +17,18 @@
       <ecommerce-nav></ecommerce-nav>
     </div>
 
+
+
     <div class="col-2 icons">
       <!-- This for user-icon Component in the orders lib -->
       <orders-user-icon></orders-user-icon>
 
       <!-- This for cart-icon Component in the orders lib -->
       <orders-cart-icon></orders-cart-icon>
+    </div>
+
+    <div class="logout col-1">
+      <a  (click)="logoutUser()"><i class="pr-1 pi pi-sign-out" ></i>Logout</a>
     </div>
 
   </div>

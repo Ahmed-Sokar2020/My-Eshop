@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createReducer, on, Action } from '@ngrx/store';
 import { User } from '../models/user';
 import * as UsersActions from './users.actions';
