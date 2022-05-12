@@ -6,20 +6,20 @@
       <div class="col-12">
         <p-table
         [value]="orders"
-        responsiveLayout="scroll"
+        responsiveLayout="stack"
         styleClass="p-datatable-gridlines" >
           <ng-template pTemplate="header">
               <tr>
-                  <th pSortableColumn="user.userName">Name
+                  <th class="text-center font-bold" pSortableColumn="user.userName">Name
                     <p-sortIcon field="user.userName"></p-sortIcon>
                   </th>
-                  <th pSortableColumn="totalPrice">Total Price
+                  <th class="text-center font-bold" pSortableColumn="totalPrice">Total Price
                     <p-sortIcon field="totalPrice"></p-sortIcon>
                   </th>
-                  <th pSortableColumn="dateOrdered">Date Ordered
+                  <th class="text-center font-bold" pSortableColumn="dateOrdered">Date Ordered
                     <p-sortIcon field="dateOrdered"></p-sortIcon>
                   </th>
-                  <th pSortableColumn="status">Status
+                  <th class="text-center font-bold" pSortableColumn="status">Status
                     <p-sortIcon field="status"></p-sortIcon>
                   </th>
                   <th></th>
@@ -28,16 +28,25 @@
 
           <ng-template pTemplate="body" let-order>
               <tr>
-                  <td>{{order.user?.userName}}</td>
-                  <td>{{order.totalPrice | currency}}</td>
-                  <td>{{order.dateOrdered | date: 'short'}}</td>
-                  <td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">User Name</span>
+                    {{order.user?.userName}}
+                  </td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Total Price</span>
+                    {{order.totalPrice | currency}}
+                  </td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Date</span>
+                    {{order.dateOrdered | date: 'short'}}</td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Order Status</span>
                     <p-tag
                     [value]="orderStatus[order.status]?.label"
                     [severity]="orderStatus[order.status]?.color">
                     </p-tag>
                   </td>
-                  <td>
+                  <td class="text-center">
                     <p-button
                     (click)="deleteOrders(order.id)"
                     icon="pi pi-trash"

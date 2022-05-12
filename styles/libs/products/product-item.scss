@@ -12,19 +12,20 @@
     cursor: pointer;
 
     .image {
-      width: 60%;
+      width: 50%;
       height: 150px;
       margin-top: -100px;
     }
 
+
     .name {
-      margin: 20px 0 10px;
-      font-size: 1.2em;
+      margin: 20px 0 5px;
+      font-size: 1.1em;
     }
 
     .price {
       color: $primary-color;
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin: 0;
     }
 

@@ -1,16 +1,17 @@
 <p-toast></p-toast>
 <div class="admin-page">
-  <p-card [header]="editMode? 'Edit Product' : 'Add Product'" subheader="You can add or edit Products here">
+  <p-card [header]="editMode ? 'Edit Product' : 'Add Product'"
+  subheader="You can add or edit Products here">
     <!-- The Grid of The Toolbar -->
     <div class="grid mb-5">
       <div class="col-12">
-        <p-toolbar>
+        <p-toolbar >
           <div class="p-toolbar-group-left"></div>
-          <div class="p-toolbar-group-right">
+          <div class="flex flex-wrap p-toolbar-group-right">
             <p-button
-            [label]="editMode? 'Update' : 'Create'"
+            [label]="editMode ? 'Update' : 'Create'"
             icon="pi pi-plus"
-            styleClass="p-button-primary mr-2"
+            styleClass=" p-button-primary mr-2"
             (click)="onSubmit()">
             </p-button>
 
@@ -30,7 +31,7 @@
         <form [formGroup]="form">
 
           <div class="p-fluid p-formgrid grid">
-            <div class="p-field col-4">
+            <div class="p-field col-12 md:col-4 " >
                 <label for="name">Name</label>
                 <input
                 class="mt-1"
@@ -40,7 +41,7 @@
                 <small *ngIf="productForm.name.invalid && isSubmitted" class="p-error">Name is required</small>
             </div>
 
-            <div class="p-field col-4">
+            <div class="p-field col-12 md:col-4">
                 <label for="brand">Brand</label>
                 <input
                 class="mt-1"
@@ -50,7 +51,7 @@
                 <small *ngIf="productForm.brand.invalid && isSubmitted" class="p-error">Brand is required</small>
             </div>
 
-            <div class="p-field col-4">
+            <div class="p-field col-12 md:col-4">
                 <label for="price">Price</label><br />
                 <p-inputNumber
                 styleClass="mt-1"
@@ -64,7 +65,7 @@
 
           <!-- Another Fluid  -->
           <div class="p-fluid p-formgrid grid">
-            <div class="p-field col-4">
+            <div class="p-field col-12 md:col-4">
               <label for="price">Count In Stock</label><br />
               <p-inputNumber
               styleClass="mt-1"
@@ -77,7 +78,7 @@
               </small>
             </div>
 
-            <div class="p-field col-4">
+            <div class="p-field col-12 md:col-4">
               <label for="Category">Category</label><br />
               <p-dropdown
               styleClass="mt-1"
@@ -94,7 +95,7 @@
               <small *ngIf="productForm.category.invalid && isSubmitted" class="p-error">Category is required</small>
             </div>
 
-            <div class="p-field col-4">
+            <div class="p-field col-12 md:col-4">
               <label for="isFeatured">Is Featured</label><br />
               <p-inputSwitch
               styleClass="mt-1"

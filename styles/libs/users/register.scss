@@ -4,14 +4,13 @@
   position: relative;
 
   &-panel {
-    width: 400px;
-    height: 550px;
+    width: 300px;
+    height: 500px;
     border: 2px solid var(--blue-500);
     background-color: var(--surface-a);
     position: absolute;
-    left: calc(50% - 200px);
-    top: calc(50% - 275px);
-    text-align: center;
+    left: calc(50% - 150px);
+    top: calc(50% - 250px);
 
     input, textarea::placeholder {
       font-size: .9rem;
@@ -28,10 +27,6 @@
         border-bottom: 1px solid;
       }
     }
-  }
-
-  small {
-    text-align: left;
   }
 
 }

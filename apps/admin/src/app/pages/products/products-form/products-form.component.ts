@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
@@ -88,7 +86,7 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
 
 
   // To Check if We Are in Edit Mode
- private checkEditMode() {
+  private checkEditMode() {
   this.route.params
   .pipe(takeUntil(this.endSubs))
   .subscribe(params => {
@@ -124,7 +122,7 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
       this.messageService.add({
         severity:'success',
         summary:'Success',
-        detail:`Product is created`});
+        detail:`Product is added`});
       timer(2000).toPromise().then(() => {
         this.location.back(); // To goback to the Products List Page
       })
@@ -133,7 +131,7 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
         this.messageService.add({
           severity:'error',
           summary:'Erorr',
-          detail:'Product is not created'});
+          detail:'Product is not added'});
       });
 
   }
@@ -181,7 +179,7 @@ export class ProductsFormComponent implements OnInit, OnDestroy {
       }
       fileReader.readAsDataURL(file);
     }
- }
+  }
 
 
 }

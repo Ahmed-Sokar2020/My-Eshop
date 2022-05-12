@@ -1,25 +1,23 @@
 <header>
   <div class="grid contain">
-    <div class="col-2">
+    <div class="col-12 md:col-2">
       <div class="logo">
         <img src="assets/images/logo.png" alt="Logo">
       </div>
     </div>
 
     <!-- This for products-search Component in the Products Library -->
-    <div class="col-3 search ">
+    <div class="col-12 md:col-3 search ">
       <products-search></products-search>
 
     </div>
 
     <!-- This for Nav Component in the Shared Folder -->
-    <div class="col-3 col-offset-1 navbar">
+    <div class="col-12 md:col-3 md:col-offset-1 navbar">
       <ecommerce-nav></ecommerce-nav>
     </div>
 
-
-
-    <div class="col-2 icons">
+    <div class="col-12 text-left md:col-2 md:text-right icons">
       <!-- This for user-icon Component in the orders lib -->
       <orders-user-icon></orders-user-icon>
 
@@ -27,10 +25,9 @@
       <orders-cart-icon></orders-cart-icon>
     </div>
 
-    <div class="logout col-1">
+    <div class=" col-12 md:col-1 logout">
       <a  (click)="logoutUser()"><i class="pr-1 pi pi-sign-out" ></i>Logout</a>
     </div>
-
   </div>
 </header>
 

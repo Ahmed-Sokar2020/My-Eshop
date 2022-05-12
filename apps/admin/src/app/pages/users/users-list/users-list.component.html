@@ -21,24 +21,29 @@
       <div class="col-12">
         <p-table
         [value]="users"
-        responsiveLayout="scroll"
+        responsiveLayout="stack"
         styleClass="p-datatable-gridlines" >
           <ng-template pTemplate="header">
               <tr>
-                  <th pSortableColumn="name">Name
+                  <th class="text-center font-bold" pSortableColumn="name">Name
                     <p-sortIcon field="name"></p-sortIcon>
                   </th>
-                  <th>Email</th>
-                  <th>IS Admin</th>
-                  <th>Country</th>
-                  <th></th>
+                  <th class="text-center font-bold">Email</th>
+                  <th class="text-center font-bold">IS Admin</th>
+                  <th class="text-center font-bold">Country</th>
+                  <th class="text-center font-bold"></th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-user>
               <tr>
-                  <td>{{user.userName}}</td>
-                  <td>{{user.email}}</td>
-                  <td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Name</span>
+                    {{user.userName}}</td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Email</span>
+                    {{user.email}}</td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">IS Admin</span>
                     <p-tag
                     *ngIf="user.isAdmin"
                     icon="pi pi-check"
@@ -53,9 +58,11 @@
                     </p-tag>
                   </td>
 
-                  <td>{{ getCountryName(user.country) }}</td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Country</span>
+                    {{ getCountryName(user.country) }}</td>
 
-                  <td>
+                  <td class="text-center">
                     <p-button
                     (click)="deleteUser(user.id)"
                     icon="pi pi-trash"

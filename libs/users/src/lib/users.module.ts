@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Route } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 
 import { ButtonModule } from 'primeng/button';
@@ -15,7 +15,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 
-export const usersRoute: Route[] = [
+
+export const usersRoute: Routes = [
   {
     path: 'login',
     component: LoginComponent,

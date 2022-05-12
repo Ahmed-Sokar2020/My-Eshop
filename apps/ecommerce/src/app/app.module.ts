@@ -22,6 +22,7 @@ import { OrdersModule } from '@sokar/orders';
 
 import {ToastModule} from 'primeng/toast';
 import {AccordionModule} from 'primeng/accordion';
+import {SidebarModule} from 'primeng/sidebar';
 
 // NgRx Modules
 import { StoreModule } from '@ngrx/store';
@@ -51,6 +52,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     NgxStripeModule.forRoot('pk_test_51JvY8wLZ7eZ4G7GfNsBSMH2qhZcgi8wL0lVF5iC4efI2584pCTqhdSx8NOXGc7JvZWBqQcNruRy9vsE7w4hO2CYG00gpiZ6bUU'),
     AccordionModule,
     ToastModule,
+    SidebarModule,
     ProductsModule,
     UiModule,
     OrdersModule,

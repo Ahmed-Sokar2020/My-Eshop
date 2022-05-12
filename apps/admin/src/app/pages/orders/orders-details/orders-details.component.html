@@ -1,27 +1,27 @@
 <p-toast></p-toast>
 <div class="admin-page" *ngIf="order">
   <p-card header="View Order" subheader="You can edit Order Status here">
-
+    <!-- Fieldset -->
     <p-fieldset
     legend="Order Details"
     [toggleable]="true"
     styleClass="mb-4">
       <div class="grid">
-        <div class="col-4">
+        <div class="col-12 md:col-6 lg:col-3">
           <h4>Order Id</h4>
           <p style="color: green; font-weight: 500;">
             {{order.id}}
           </p>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 md:col-6 lg:col-3">
           <h4>Order Date</h4>
           <p style="color: green; font-weight: 500;">
             {{order.dateOrdered | date: 'short'}}
           </p>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 md:col-6 lg:col-3">
           <h4>Order Status</h4>
           <p-dropdown
           [options]="orderStatuses"
@@ -32,7 +32,7 @@
           </p-dropdown>
         </div>
 
-        <div class="col-4">
+        <div class="col-12 md:col-6 lg:col-3">
           <h4>Order Total Price</h4>
           <p style="color: green; font-weight: 500;">
             {{order.totalPrice | currency}}
@@ -40,18 +40,159 @@
         </div>
       </div>
     </p-fieldset>
+    <!-- Another Fieldset -->
+    <p-fieldset
+    legend="Order Item"
+    [toggleable]="true"
+    styleClass="mb-4">
+      <div class="grid" *ngFor= "let orderItem of order.orderItems">
+        <div class="col-12 md:col-4 lg:col-2 font-normal">
+          <h4>Name</h4>
+          <p style="color: green">
+            {{orderItem.product?.name}}
+          </p>
+        </div>
 
+        <div class="col-12 md:col-4 lg:col-2 font-normal">
+          <h4>Brand</h4>
+          <p style="color: green">
+            {{orderItem.product?.brand}}
+          </p>
+        </div>
+
+        <div class="col-12 md:col-4 lg:col-2 font-normal">
+          <h4>Category</h4>
+          <p style="color: green">
+            {{orderItem.product?.category?.name}}
+          </p>
+        </div>
+
+        <div class="col-12 md:col-4 lg:col-2 font-normal">
+          <h4>Price</h4>
+          <p style="color: green">
+            {{orderItem.product?.price | currency}}
+          </p>
+        </div>
+
+        <div class="col-12 md:col-4 lg:col-2 font-normal">
+          <h4>Quantity</h4>
+          <p style="color: green">
+            {{orderItem.quantity}}
+          </p>
+        </div>
+
+        <div class="col-12 md:col-4 lg:col-2 font-normal">
+          <h4>Subtotal</h4>
+          <p style="color: green">
+            {{orderItem.product?.price * orderItem.quantity | currency}}
+          </p>
+        </div>
+      </div>
+
+      <div class="grid mt-3" >
+        <h4 class="col-12 md:col-2 md:col-offset-8"
+        style="font-weight: bold;"> Total Price
+        </h4>
+        <p class="col-12 md:col-2"
+        style="color: green; font-weight: bold;">
+        {{order.totalPrice | currency}}
+        </p>
+      </div>
+    </p-fieldset>
+    <!-- Another Fieldset -->
+    <p-fieldset
+    legend="Order Adress"
+    [toggleable]="true"
+    styleClass="mb-4">
+      <div class="grid">
+        <div class="col-12 md:col-4">
+          <h4>Customer Adress</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.shippingAdress1}} <br />
+            {{order.shippingAdress2}} <br />
+            {{order.city}}, {{order.country}}
+          </p>
+        </div>
+        <div class="col-12 md:col-4">
+          <h4>Customer Info</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.user?.userName}}
+          </p>
+        </div>
+        <div class="col-12 md:col-4">
+          <h4>Contact Info</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.user?.phone}}<br />
+            {{order.user?.email}}<br />
+          </p>
+        </div>
+
+      </div>
+    </p-fieldset>
+  </p-card>
+</div>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+
+
+
+
+
+<!--
+  <p-toast></p-toast>
+<div class="admin-page" *ngIf="order">
+  <p-card header="View Order" subheader="You can edit Order Status here">
+    Fieldset
+    <p-fieldset
+    legend="Order Details"
+    [toggleable]="true"
+    styleClass="mb-4">
+      <div class="grid">
+        <div class="col-12 md:col-6 lg:col-3">
+          <h4>Order Id</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.id}}
+          </p>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-3">
+          <h4>Order Date</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.dateOrdered | date: 'short'}}
+          </p>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-3">
+          <h4>Order Status</h4>
+          <p-dropdown
+          [options]="orderStatuses"
+          [(ngModel)]="selectedStatus"
+          optionLabel="name"
+          optionValue="id"
+          (onChange)="onStatusChange($event)">
+          </p-dropdown>
+        </div>
+
+        <div class="col-12 md:col-6 lg:col-3">
+          <h4>Order Total Price</h4>
+          <p style="color: green; font-weight: 500;">
+            {{order.totalPrice | currency}}
+          </p>
+        </div>
+      </div>
+    </p-fieldset>
+    Another Fieldset
     <p-fieldset
     legend="Order Item"
     [toggleable]="true"
     styleClass="mb-4">
       <div class="grid">
-        <h4 class="col-2 p-text-bold">Name</h4>
-        <h4 class="col-2 p-text-bold">Brand</h4>
-        <h4 class="col-2 p-text-bold">Category</h4>
-        <h4 class="col-2 p-text-bold">Price</h4>
-        <h4 class="col-2 p-text-bold">Quantity</h4>
-        <h4 class="col-2 p-text-bold">Subtotal</h4>
+        <h4 class="col-12 md:col-4 lg:col-2 font-bold">Name</h4>
+        <h4 class="col-12 md:col-4 lg:col-2 font-bold">Brand</h4>
+        <h4 class="col-12 md:col-4 lg:col-2 font-bold">Category</h4>
+        <h4 class="col-12 md:col-4 lg:col-2 font-bold">Price</h4>
+        <h4 class="col-12 md:col-4 lg:col-2 font-bold">Quantity</h4>
+        <h4 class="col-12 md:col-4 lg:col-2 font-bold">Subtotal</h4>
       </div>
 
       <div *ngFor= "let orderItem of order.orderItems">
@@ -89,7 +230,7 @@
       </div>
       </div>
     </p-fieldset>
-
+    Another Fieldset
     <p-fieldset
     legend="Order Adress"
     [toggleable]="true"
@@ -122,3 +263,6 @@
   </p-card>
 </div>
 <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+
+-->

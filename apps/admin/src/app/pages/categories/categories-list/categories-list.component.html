@@ -21,30 +21,38 @@
       <div class="col-12">
         <p-table
         [value]="categories"
-        responsiveLayout="scroll"
-        styleClass="p-datatable-gridlines" >
+        responsiveLayout="stack"
+        styleClass="p-datatable-gridlines">
+
           <ng-template pTemplate="header">
               <tr>
-                  <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-                  <th>Icon</th>
-                  <th>Color</th>
+                  <th class="text-center font-bold" pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                  <th class="text-center font-bold">Icon</th>
+                  <th class="text-center font-bold">Color</th>
                   <th></th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-category>
               <tr>
-                  <td>{{category.name}}</td>
-                  <td><i class="pi"
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Name</span>
+                    {{category.name}}
+                  </td>
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Icon</span>
+                    <i class="pi"
                       style="font-size: 2rem"
                       [ngClass]="'pi-' + category.icon"> </i>
                   </td>
-                  <td><i class="pi pi-circle-on"
+                  <td class="text-center">
+                    <span class="p-column-title font-bold">Color</span>
+                    <i class="pi pi-circle-on"
                       style="font-size: 2rem"
                       [ngStyle]="{ color: category.color }"
                       ></i>
                   </td>
 
-                  <td>
+                  <td class="text-center">
                     <p-button
                     (click)="deleteCategory(category.id)"
                     icon="pi pi-trash"

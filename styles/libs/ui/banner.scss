@@ -34,5 +34,9 @@
   &-image {
     text-align: center;
     padding-top: 20px;
+    img {
+      width: 100%;
+      height: 75%
+    }
   }
 }
