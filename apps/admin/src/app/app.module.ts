@@ -43,7 +43,7 @@ import {EditorModule} from 'primeng/editor';
 import { TagModule } from 'primeng/tag';
 import {InputMaskModule} from 'primeng/inputmask';
 import {FieldsetModule} from 'primeng/fieldset';
-import {SidebarModule} from 'primeng/sidebar';
+
 
 import { MessageService } from 'primeng/api';
 import {ConfirmationService} from 'primeng/api';
@@ -67,7 +67,6 @@ const UX_MODULES = [
   TagModule,
   InputMaskModule,
   FieldsetModule,
-  SidebarModule
 ]
 
 @NgModule({
